@@ -17,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -79,6 +81,23 @@ public class ProductService {
             response.setSubCategoryName(existsProduct.getSubCategory().getName());
         }
         return response;
+    }
+
+    public List<ProductResponse> getAllProduct() {
+
+        return productRepository.findAll().stream().map(product -> {
+            ProductResponse response = ObjectMapperUtils.map(product, ProductResponse.class);
+
+            if (product.getCategory() != null && !product.getCategory().isDeleted()) {
+                response.setCategoryName(product.getCategory().getName());
+            }
+
+            if (product.getSubCategory() != null && !product.getSubCategory().isDeleted()) {
+                response.setSubCategoryName(product.getSubCategory().getName());
+            }
+
+            return response;
+        }).toList();
     }
 
 
