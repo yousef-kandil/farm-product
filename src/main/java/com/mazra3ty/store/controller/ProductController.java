@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "Product Controller", description = "CRUD REST APIs to CREATE, UPDATE, FETCH, AND DELETE Product details")
@@ -32,6 +33,12 @@ public class ProductController {
     @GetMapping("/get/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
         return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
+    }
+
+    @Operation(description = "api to Get All Product")
+    @GetMapping("/list")
+    public ResponseEntity<List<ProductResponse>> getProductById() {
+        return new ResponseEntity<>(productService.getAllProduct(), HttpStatus.OK);
     }
 
     @Operation(description = "api To Make Update Product Details By Id")
