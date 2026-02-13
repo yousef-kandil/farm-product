@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mazra3ty_db
+    username: postgres # اسم المستخدم عندك
+    password: postgres # الباسورد بتاعك
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # بيعدل الجداول تلقائياً في الداتابيز
+    show-sql: true # عشان تشوف الكود اللي Spring بيعمله في الـ Console
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080 # البورت اللي هيشتغل عليه التطبيق
+
+  spring:
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
