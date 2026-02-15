@@ -1,6 +1,6 @@
 package com.mazra3ty.store.utils.exception;
 
-import com.mazra3ty.store.constant.ErrorMassageEnum;
+import com.mazra3ty.store.sharedConstant.ErrorMassageEnum;
 import lombok.Getter;
 
 @Getter
