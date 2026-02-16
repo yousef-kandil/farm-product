@@ -1,8 +1,8 @@
 package com.mazra3ty.store.sectionsAndProducts.controller;
 
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategoryRequest;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategoryResponse;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategorySimpleResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategoryRequest;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategoryResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategorySimpleResponse;
 import com.mazra3ty.store.sectionsAndProducts.service.SubcategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

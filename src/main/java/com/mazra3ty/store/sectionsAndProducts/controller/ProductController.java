@@ -1,7 +1,7 @@
 package com.mazra3ty.store.sectionsAndProducts.controller;
 
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductRequest;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductRequest;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductResponse;
 import com.mazra3ty.store.sectionsAndProducts.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -37,6 +37,11 @@ public enum ErrorMassageEnum {
     PRODUCT_NOT_FOUND("PRODUCT_NOT_FOUND", "this Product not found", "هذا المنتج غير موجود"),
     SUBCATEGORY_NOT_BELONG_TO_CATEGORY("SUBCATEGORY_NOT_BELONG_TO_CATEGORY", "Subcategory does not belong to selected category", "القسم الفرعي لا يتبع هذا القسم الرئيسي"),
 
+    //User Error Message
+    USER_NOT_FOUND("USER_NOT_FOUND", "this User not found", "هذا المستخدم غير موجود"),
+    EMAIL_ALREADY_EXISTS("EMAIL_ALREADY_EXISTS", "this Email Already Exists", "هذا الايميل موجود بالفعل"),
+
+
     ;
 
     private final String key;

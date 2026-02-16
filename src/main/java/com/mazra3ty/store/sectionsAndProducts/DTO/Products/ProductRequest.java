@@ -1,7 +1,7 @@
-package com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products;
+package com.mazra3ty.store.sectionsAndProducts.DTO.Products;
 
 
-import com.mazra3ty.store.sectionsAndProducts.ENUM.UnitTypeEnum;
+import com.mazra3ty.store.sectionsAndProducts.Enum.UnitTypeEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 

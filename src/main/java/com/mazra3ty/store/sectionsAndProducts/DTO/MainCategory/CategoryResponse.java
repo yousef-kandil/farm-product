@@ -1,7 +1,7 @@
-package com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.MainCategory;
+package com.mazra3ty.store.sectionsAndProducts.DTO.MainCategory;
 
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductResponse;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategoryResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategoryResponse;
 import lombok.*;
 
 import java.util.List;

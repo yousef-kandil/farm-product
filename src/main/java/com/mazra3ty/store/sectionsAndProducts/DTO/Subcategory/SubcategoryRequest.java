@@ -1,4 +1,4 @@
-package com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory;
+package com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

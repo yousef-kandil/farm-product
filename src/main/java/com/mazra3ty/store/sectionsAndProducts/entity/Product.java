@@ -1,6 +1,6 @@
 package com.mazra3ty.store.sectionsAndProducts.entity;
 
-import com.mazra3ty.store.sectionsAndProducts.ENUM.UnitTypeEnum;
+import com.mazra3ty.store.sectionsAndProducts.Enum.UnitTypeEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
