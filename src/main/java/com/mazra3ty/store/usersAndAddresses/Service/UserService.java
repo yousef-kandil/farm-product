@@ -40,7 +40,7 @@ public class UserService {
 
     public List<UserResponse> getAllUsers() {
 
-        List<User> list = userRepository.findAllByISActiveTrue();
+        List<User> list = userRepository.findAllByIsActiveTrue();
         return ObjectMapperUtils.mapAll(list, UserResponse.class);
     }
 
