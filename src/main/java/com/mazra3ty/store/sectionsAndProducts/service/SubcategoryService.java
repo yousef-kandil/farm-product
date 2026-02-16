@@ -1,10 +1,10 @@
 package com.mazra3ty.store.sectionsAndProducts.service;
 
 import com.mazra3ty.store.sharedConstant.ErrorMassageEnum;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductResponse;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategoryRequest;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategoryResponse;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Subcategory.SubcategorySimpleResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategoryRequest;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategoryResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Subcategory.SubcategorySimpleResponse;
 import com.mazra3ty.store.sectionsAndProducts.entity.Category;
 import com.mazra3ty.store.sectionsAndProducts.entity.Product;
 import com.mazra3ty.store.sectionsAndProducts.entity.Subcategory;

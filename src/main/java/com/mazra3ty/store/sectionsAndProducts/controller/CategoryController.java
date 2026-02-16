@@ -1,9 +1,9 @@
 package com.mazra3ty.store.sectionsAndProducts.controller;
 
 
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.MainCategory.CategoryRequest;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.MainCategory.CategoryResponse;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.MainCategory.CategorySimpleResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.MainCategory.CategoryRequest;
+import com.mazra3ty.store.sectionsAndProducts.DTO.MainCategory.CategoryResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.MainCategory.CategorySimpleResponse;
 import com.mazra3ty.store.sectionsAndProducts.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

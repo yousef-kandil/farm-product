@@ -1,8 +1,8 @@
 package com.mazra3ty.store.sectionsAndProducts.service;
 
 import com.mazra3ty.store.sharedConstant.ErrorMassageEnum;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductRequest;
-import com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.Products.ProductResponse;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductRequest;
+import com.mazra3ty.store.sectionsAndProducts.DTO.Products.ProductResponse;
 import com.mazra3ty.store.sectionsAndProducts.entity.Category;
 import com.mazra3ty.store.sectionsAndProducts.entity.Product;
 import com.mazra3ty.store.sectionsAndProducts.entity.Subcategory;
@@ -103,38 +103,29 @@ public class ProductService {
 
     public ProductResponse updateProductById(Long id, ProductRequest request) {
 
-        // 1. التأكد من وجود المنتج في الداتابيز
         Product product = productValidation.checkProductById(id);
 
-        // 2. تحديث الاسم: فقط لو الموظف غيره، ونتأكد إن الاسم الجديد مش محجوز لمنتج تاني
         if (request.getName() != null && !request.getName().equals(product.getName())) {
             productValidation.checkByNameAndDeletedFalse(request.getName());
             product.setName(request.getName());
         }
 
-        // 3. تحديث الأقسام (اللوجيك الخاص بالهيكلية)
         if (request.getMainCategoryId() != null) {
-            // أ - لو القسم الرئيسي في الريكويست مختلف عن الحالي
             if (!product.getCategory().getId().equals(request.getMainCategoryId())) {
                 Category newMainCategory = categoryValidation.checkMainCategoryExistsAndNotDeleted(request.getMainCategoryId());
                 product.setCategory(newMainCategory);
 
-                // لو نقلناه لقسم رئيسي جديد وما بعتناش قسم فرعي (حالة البيض)
                 if (request.getSubCategoryId() == null) {
-                    // نأكد إن القسم الرئيسي الجديد ده "فاضي" ملوش فروع تمنع إضافة منتج مباشر
                     if (subcategoryRepository.existsByCategoryIdAndDeletedFalse(newMainCategory.getId())) {
                         throw new ApplicationException(ErrorMassageEnum.CATEGORY_HAS_SUB_CATEGORIES);
                     }
-                    product.setSubCategory(null); // مسح القسم الفرعي القديم
+                    product.setSubCategory(null);
                 }
             }
-            // ب - لو فيه قسم فرعي مبعوث في الريكويست
             if (request.getSubCategoryId() != null) {
-                // نتأكد لو المنتج ملوش فرعي أصلاً أو الفرعي الجديد مختلف عن الحالي
                 if (product.getSubCategory() == null || !product.getSubCategory().getId().equals(request.getSubCategoryId())) {
                     Subcategory subcategory = subcategoryValidation.checkByIdAndDeletedFalse(request.getSubCategoryId());
 
-                    // التأكد إن القسم الفرعي الجديد "ابن" للقسم الرئيسي الحالي للمنتج
                     if (!subcategory.getCategory().getId().equals(product.getCategory().getId())) {
                         throw new ApplicationException(ErrorMassageEnum.SUBCATEGORY_NOT_BELONG_TO_CATEGORY);
                     }

@@ -1,4 +1,4 @@
-package com.mazra3ty.store.sectionsAndProducts.categoryAndProductsDTO.MainCategory;
+package com.mazra3ty.store.sectionsAndProducts.DTO.MainCategory;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

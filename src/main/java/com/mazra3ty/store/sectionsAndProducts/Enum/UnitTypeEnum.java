@@ -1,4 +1,4 @@
-package com.mazra3ty.store.sectionsAndProducts.ENUM;
+package com.mazra3ty.store.sectionsAndProducts.Enum;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
