@@ -52,7 +52,7 @@ public class UserController {
 
     @PutMapping("/update/{id}")
     @Operation(description = "api To Update User By Id")
-    public ResponseEntity<UserResponse> updateById(@PathVariable Long id, @Valid @RequestBody UserRequest request) {
+    public ResponseEntity<UserResponse> updateById(@PathVariable Long id, @RequestBody UserRequest request) {
 
         return new ResponseEntity<>(userService.updateUserById(id, request), HttpStatus.OK);
     }
