@@ -41,6 +41,10 @@ public enum ErrorMassageEnum {
     USER_NOT_FOUND("USER_NOT_FOUND", "this User not found", "هذا المستخدم غير موجود"),
     EMAIL_ALREADY_EXISTS("EMAIL_ALREADY_EXISTS", "this Email Already Exists", "هذا الايميل موجود بالفعل"),
 
+    //User Error Message
+    ADDRESS_NOT_FOUND("ADDRESS_NOT_FOUND", "this Address not found", "هذا العنوان غير موجود"),
+
+
 
     ;
 
