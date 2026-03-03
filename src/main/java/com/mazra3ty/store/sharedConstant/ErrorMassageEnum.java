@@ -19,7 +19,7 @@ public enum ErrorMassageEnum {
     ERROR_WRONG_OTP("ERROR_WRONG_OTP", "OTP not correct", "OTP غير صحيح"),
     ERROR_OTP_EXPIRED("ERROR_OTP_EXPIRED", "OTP expired", "OTP منتهى الصلاحية"),
     ERROR_EMAIL_ALREADY_EXIST("EMAIL_ALREADY_EXIST", "Email already exist", "هذا الايميل موجود بالفعل"),
-
+    ADDRESS_DOES_NOT_BELONG_TO_USER("ADDRESS_DOES_NOT_BELONG_TO_USER", "This address does not belong to user", "هذا العنوان لاينتمي الي هذا المستخدم"),
 
     // Category Error Message
     CATEGORY_NAME_ALREADY_EXIST("CATEGORY_NAME_ALREADY_EXIST", "this category already exist", "اسم القسم موجود بالفعل"),
@@ -43,7 +43,6 @@ public enum ErrorMassageEnum {
 
     //User Error Message
     ADDRESS_NOT_FOUND("ADDRESS_NOT_FOUND", "this Address not found", "هذا العنوان غير موجود"),
-
 
 
     ;

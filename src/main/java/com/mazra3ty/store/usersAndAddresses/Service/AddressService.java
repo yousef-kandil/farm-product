@@ -1,10 +1,14 @@
 package com.mazra3ty.store.usersAndAddresses.Service;
 
+import com.mazra3ty.store.sharedConstant.ErrorMassageEnum;
 import com.mazra3ty.store.usersAndAddresses.DTO.Address.AddressRequest;
 import com.mazra3ty.store.usersAndAddresses.DTO.Address.AddressResponse;
 import com.mazra3ty.store.usersAndAddresses.Entity.Address;
+import com.mazra3ty.store.usersAndAddresses.Entity.User;
 import com.mazra3ty.store.usersAndAddresses.Repository.AddressRepository;
 import com.mazra3ty.store.usersAndAddresses.Validation.AddressValidator;
+import com.mazra3ty.store.usersAndAddresses.Validation.UserValidator;
+import com.mazra3ty.store.utils.exception.ApplicationException;
 import com.mazra3ty.store.utils.shared.ObjectMapperUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,9 +22,13 @@ import java.util.List;
 public class AddressService {
     private final AddressRepository addressRepository;
     private final AddressValidator addressValidator;
+    private final UserValidator userValidator;
 
     public AddressResponse createAddress(AddressRequest request) {
+
+        User user = userValidator.checkUserById(request.getUserId());
         Address address = ObjectMapperUtils.map(request, Address.class);
+        address.setUser(user);
         addressRepository.save(address);
         return ObjectMapperUtils.map(address, AddressResponse.class);
     }
@@ -29,20 +37,33 @@ public class AddressService {
     public AddressResponse getAddressById(Long id) {
 
         Address address = addressValidator.checkAddressById(id);
-        return ObjectMapperUtils.map(address, AddressResponse.class);
+        AddressResponse response = ObjectMapperUtils.map(address, AddressResponse.class);
+        response.setUserName(address.getUser().getUsername());
+        return response;
     }
 
 
     public List<AddressResponse> getAllAddress() {
 
         List<Address> address = addressRepository.findAllByIsActiveTrue();
-        return ObjectMapperUtils.mapAll(address, AddressResponse.class);
+
+        return address.stream().map(add -> {
+            AddressResponse response = ObjectMapperUtils.map(add, AddressResponse.class);
+            response.setUserName(add.getUser().getUsername());
+
+            return response;
+        }).toList();
+
     }
 
 
     public AddressResponse updateAddressById(Long id, AddressRequest request) {
 
         Address address = addressValidator.checkAddressById(id);
+
+        if (!address.getUser().getId().equals(request.getUserId())) {
+            throw new ApplicationException(ErrorMassageEnum.ADDRESS_DOES_NOT_BELONG_TO_USER);
+        }
 
         if (request.getCity() != null && !address.getCity().equals(request.getCity())) {
             address.setCity(request.getCity());

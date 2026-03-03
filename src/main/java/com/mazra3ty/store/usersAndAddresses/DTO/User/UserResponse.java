@@ -1,5 +1,6 @@
 package com.mazra3ty.store.usersAndAddresses.DTO.User;
 
+import com.mazra3ty.store.usersAndAddresses.DTO.Address.AddressResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,4 +30,6 @@ public class UserResponse {
     private boolean isActive;
 
     private LocalDateTime createdAt;
+
+    private List<AddressResponse> addressList;
 }

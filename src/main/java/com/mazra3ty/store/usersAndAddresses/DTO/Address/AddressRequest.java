@@ -35,5 +35,5 @@ public class AddressRequest {
     @NotNull(message = "يرجي تحديد نوع العنوان مثال/ المنزل / العمل / المقهي")
     private String addressDescription;
 
-    private boolean isDefault;
+    private Long userId;
 }
