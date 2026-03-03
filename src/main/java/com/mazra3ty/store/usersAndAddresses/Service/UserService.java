@@ -30,12 +30,33 @@ public class UserService {
         User user = ObjectMapperUtils.map(request, User.class);
         user.setActive(true);
 
-        Address firstAddress = user.getAddressList().getFirst();
-        firstAddress.setUser(user);
-        firstAddress.setDefault(true);
+        List<Address> addresses = request.getAddress().stream().map(addr -> {
 
+            Address address = ObjectMapperUtils.map(addr, Address.class);
+            address.setUser(user);
+            address.setActive(true);
+            address.setDefault(true);
+            return address;
+        }).toList();
+
+        user.setAddressList(addresses);
         userRepository.save(user);
-        return ObjectMapperUtils.map(user, UserResponse.class);
+
+        UserResponse userResponse = ObjectMapperUtils.map(user, UserResponse.class);
+
+        List<AddressResponse> addressResponses = user.getAddressList().stream()
+                .map(address -> ObjectMapperUtils.map(address, AddressResponse.class)).toList();
+
+        userResponse.setAddressList(addressResponses);
+
+        return userResponse;
+
+//        Address firstAddress = user.getAddressList().getFirst();
+//        firstAddress.setUser(user);
+//        firstAddress.setDefault(true);
+//
+//        userRepository.save(user);
+//        return ObjectMapperUtils.map(user, UserResponse.class);
     }
 
 
