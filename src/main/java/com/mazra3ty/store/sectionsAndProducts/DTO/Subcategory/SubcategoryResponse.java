@@ -20,5 +20,5 @@ public class SubcategoryResponse {
 
     private String mainCategoryName;
 
-    private List<ProductResponse> listOfProducts;
+    private List<ProductResponse> Products;
 }

@@ -2,9 +2,12 @@ package com.mazra3ty.store.usersAndAddresses.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,10 +28,10 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "CITY")
+    @Column(name = "CITY", nullable = false)
     private String city;
 
-    @Column(name = "AREA")
+    @Column(name = "AREA", nullable = false)
     private String area;
 
     @Column(name = "STREET_NAME")
@@ -54,4 +57,8 @@ public class Address {
 
     @Column(name = "IS_ACTIVE")
     private boolean isActive = true;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SYSTEM_USERS_ID")
+    private User user;
 }

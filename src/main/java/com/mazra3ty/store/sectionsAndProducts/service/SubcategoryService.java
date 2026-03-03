@@ -61,7 +61,7 @@ public class SubcategoryService {
 
         List<Product> productList = productRepository.findBySubCategoryIdAndDeletedFalse(id);
         if (productList != null && !productList.isEmpty()) {
-            response.setListOfProducts(ObjectMapperUtils.mapAll(productList, ProductResponse.class));
+            response.setProducts(ObjectMapperUtils.mapAll(productList, ProductResponse.class));
         }
         return response;
     }

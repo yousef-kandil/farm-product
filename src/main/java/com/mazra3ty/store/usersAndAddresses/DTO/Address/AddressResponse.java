@@ -1,5 +1,6 @@
 package com.mazra3ty.store.usersAndAddresses.DTO.Address;
 
+import com.mazra3ty.store.usersAndAddresses.DTO.User.UserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,4 +35,6 @@ public class AddressResponse {
     private boolean isDefault;
 
     private boolean isActive;
+
+    private String userName;
 }
