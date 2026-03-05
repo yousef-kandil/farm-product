@@ -1,7 +1,7 @@
 package com.mazra3ty.store.utils.exception;
 
-import com.mazra3ty.store.sharedConstant.ErrorMassageEnum;
-import com.mazra3ty.store.sharedDto.ErrorResponseDto;
+import com.mazra3ty.store.Enum.ErrorMassageEnum;
+import com.mazra3ty.store.DTO.sharedDto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
