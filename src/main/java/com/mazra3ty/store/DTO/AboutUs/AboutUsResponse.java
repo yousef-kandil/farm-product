@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class AboutUsResponse {
+    private Long id;
 
     private String text;
 
